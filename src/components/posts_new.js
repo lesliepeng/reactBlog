@@ -9,7 +9,6 @@ class PostsNew extends Component {
   };
 
   onSubmit(props) {
-    console.log(props);
     this.props.createPost(props)
       .then(()=> {
         this.context.router.push('/');

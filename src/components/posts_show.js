@@ -2,7 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { fetchPost, deletePost } from '../actions/index';
 import { Link } from 'react-router';
-import { Converter } from 'showdown';
+
+import Highlight from 'react-highlight';
+
+import showdown, { Converter } from 'showdown';
+import showdownHighlight from 'showdown-highlight';
+import tocbot from 'tocbot';
 
 class PostsShow extends Component {
   static contextTypes = {
@@ -13,12 +18,19 @@ class PostsShow extends Component {
     this.props.fetchPost(this.props.params.id);
   }
 
-  onDeleteClick() {
-    this.props.deletePost(this.props.params.id)
-      .then(() => {
-        this.context.router.push('/');
+  initToc() {
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.js-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '.js-toc-content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h1, h2, h3',
       });
-  }
+    }
+
+
+
   render() {
     const { post } = this.props;
     //const post = this.props.post;
@@ -28,16 +40,20 @@ class PostsShow extends Component {
     }
 
     return (
-      <div>
-        <Link to='/'>Back to index</Link>
-        <button
-          className="btn btn-danger pull-xs-right"
-          onClick={this.onDeleteClick.bind(this)}>
-          Delete Post
-        </button>
-        <h3>{post.title}</h3>
-        <h6>Categories: {post.categories}</h6>
-        <span dangerouslySetInnerHTML={{__html:new Converter().makeHtml(post.content)}}/>
+      <div className="container">
+        <div className="js-toc">
+          {this.initToc.bind(this)}
+        </div>
+        <div className="blog-detail">
+          <Link to='/'>Back to index</Link>
+            <h1 className="blog-title">{post.title}</h1>
+            <div
+              className="js-toc-content blog-content"
+              dangerouslySetInnerHTML={{__html:new Converter({
+                                      extensions: [showdownHighlight]
+                                      }).makeHtml(post.content)}}>
+            </div>
+        </div>
       </div>
     );
   }

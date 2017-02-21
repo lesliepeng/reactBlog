@@ -13,5 +13,3 @@ export default (
   <Route path="posts/:id" component={PostsShow} />
 </Route>
 );
-
-//this.props.params.id

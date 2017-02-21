@@ -5,18 +5,22 @@ export const CREATE_POST = 'CREATE_POST';
 export const FETCH_POST = 'FETCH_POST';
 export const DELETE_POST = 'DELETE_POST';
 
+export const FETCH_TAGS = 'FETCH_TAGS';
 
 
-const ROOT_URL = 'https://api.leancloud.cn/1.1/classes';
-const LCID = 'WW3muRAiRPxugfRuvxKgwKxM-gzGzoHsz';
-const LCKEY = 'fI4B7VqC9h9q0Ly4IdERUnet';
+const ROOT_URL = 'https://api.leancloud.cn/1.1';
+const LCID = 'yO8UMd8PoTeRfdea87pSAdh4-gzGzoHsz';
+const LCKEY = 'yeHIfUHx0VGIguPz2yHdk4Sh';
+const PageSize = 3;
 
-export function fetchPosts() {
-  const request = axios.get(`${ROOT_URL}/blog?order=-createdAt`,{
+export function fetchPosts(page) {
+  const url = `${ROOT_URL}/classes/Posts?order=-rankTag,-createdAt&limit=${PageSize}&skip=${PageSize * page}`;
+  const request = axios.get(url,{
     headers:{'X-LC-Id': LCID,
               'X-LC-Key': LCKEY
               }
   });
+
 
   return {
     type: FETCH_POSTS,
@@ -24,8 +28,26 @@ export function fetchPosts() {
   };
 }
 
+
+export function fetchTags() {
+  const request = axios.get(`${ROOT_URL}/functions/tags`,{
+    headers:{'X-LC-Id': LCID,
+              'X-LC-Key': LCKEY
+              }
+  });
+
+
+  return {
+    type: FETCH_TAGS,
+    payload: request
+  };
+}
+
+
+
+
 export function createPost(props) {
-  const request = axios.post(`${ROOT_URL}/blog`,props,{
+  const request = axios.post(`${ROOT_URL}/classes/Posts`,props,{
     headers:{'X-LC-Id': LCID,
               'X-LC-Key': LCKEY
               }
@@ -38,7 +60,7 @@ export function createPost(props) {
 }
 
 export function fetchPost(id) {
-  const request = axios.get(`${ROOT_URL}/blog/${id}`,{
+  const request = axios.get(`${ROOT_URL}/classes/Posts/${id}`,{
     headers:{'X-LC-Id': LCID,
               'X-LC-Key': LCKEY}
   });
@@ -50,7 +72,7 @@ export function fetchPost(id) {
 }
 
 export function deletePost(id) {
-    const request = axios.delete(`${ROOT_URL}/blog/${id}`,{
+    const request = axios.delete(`${ROOT_URL}/classes/Posts/${id}`,{
       headers:{'X-LC-Id': LCID,
                 'X-LC-Key': LCKEY}
     });
