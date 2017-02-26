@@ -1,0 +1,12 @@
+/node_modules
+bundle.js
+npm-debug.log
+
+# IntelliJ
+*.iml
+logs/*
+!.gitkeep
+node_modules/
+tmp
+.idea
+.DS_Store

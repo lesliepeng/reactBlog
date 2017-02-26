@@ -6,7 +6,6 @@ import { Link } from 'react-router';
 import Highlight from 'react-highlight';
 
 import showdown, { Converter } from 'showdown';
-import showdownHighlight from 'showdown-highlight';
 import tocbot from 'tocbot';
 
 class PostsShow extends Component {
@@ -49,9 +48,7 @@ class PostsShow extends Component {
             <h1 className="blog-title">{post.title}</h1>
             <div
               className="js-toc-content blog-content"
-              dangerouslySetInnerHTML={{__html:new Converter({
-                                      extensions: [showdownHighlight]
-                                      }).makeHtml(post.content)}}>
+              dangerouslySetInnerHTML={{__html:new Converter().makeHtml(post.content)}}>
             </div>
         </div>
       </div>
