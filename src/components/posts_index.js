@@ -10,7 +10,7 @@ class PostsIndex extends Component {
   constructor(props) {
       super(props);
 
-      this.state = { page: 0 };
+      this.state = { page: 0, showSidebar: this.props.showSidebar };
 
       this.nextPage = this.nextPage.bind(this);
       this.previousPage = this.previousPage.bind(this);
@@ -69,7 +69,7 @@ class PostsIndex extends Component {
               </ul>
             </nav>
           </div>
-          <SideBar />
+          <SideBar styleName={this.props.showSidebar ? "showSidebar" : "hideSidebar"}/>
         </div>
       </div>
 
@@ -79,7 +79,9 @@ class PostsIndex extends Component {
 }
 
 function mapStateToProps(state){
-  return { posts: state.posts.all };
+  console.log("state.style.showSidebar is:");
+  console.log(state.style.showSidebar);
+  return { posts: state.posts.all, showSidebar: state.style.showSidebar };
 }
 
 export default connect(mapStateToProps, { fetchPosts })(PostsIndex);

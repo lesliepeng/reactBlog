@@ -200,7 +200,7 @@ header {
     font-weight: 500;
     color: #cdddeb;
   }
-  .blog-nav-item .name {
+  .name {
     font-size: 34px;
     color: #7F9CB3;
     line-height: 72px;
@@ -389,7 +389,27 @@ header {
 @media only screen and (max-width: 767px) {
 
 }
+/*
+ * is Phone
+ */
 @media only screen and (max-width: 736px) {
+  .container{
+    position: relative;
+  }
+  .side-bar{
+    background-color: #303133;
+    min-height: 50px;
+    position: absolute;;
+    top: 0;
+    width: 100%;
+  }
+  .hideSidebar {
+    display: none;
+  }
+  .showSidebar {
+    display: block;
+  }
+
 
 }
 @media only screen and (max-width: 414px) {

@@ -8,9 +8,6 @@ class SideBar extends Component {
     this.props.fetchTags();
   }
   renderTags() {
-    console.log("renderTagsStart");
-    console.log(this.props.tags);
-    console.log("renderTagsEnd");
     return this.props.tags.map((tag) => {
       return (
         <li className="tag-list-item" key={tag.key}>
@@ -21,14 +18,14 @@ class SideBar extends Component {
   }
   render() {
     return (
-      <div className="col-sm-3 side-bar blog-sidebar">
+      <div className={`col-sm-3 side-bar blog-sidebar ${ this.props.styleName }`}>
         <div className="profile sidebar-module">
           <img className="img-circle" src="../../image/me.jpg" />
           <h3>关于我</h3>
           <p>
-            爱画画的产品，爱写代码的UI，
-            爱跟自己较近的INTJ。
-            在这里记录生活，心得和搬运好文。
+            爱写代码的产品一枚。
+            <hr />
+            在这里记录生活，学习和工作心得，也偶尔搬运好文。
           </p>
         </div>
         <div className="category-list sidebar-module">

@@ -191,7 +191,7 @@ header {
     padding: 10px;
     font-weight: 500;
     color: #cdddeb; }
-  header .blog-nav-item .name {
+  header .name {
     font-size: 34px;
     color: #7F9CB3;
     line-height: 72px; }
@@ -344,5 +344,24 @@ header {
 /****************************/
 /** Mediaqueries **/
 /****************************/
+/*
+ * is Phone
+ */
+@media only screen and (max-width: 736px) {
+  .container {
+    position: relative; }
+
+  .side-bar {
+    background-color: #303133;
+    min-height: 50px;
+    position: absolute;
+    top: 0;
+    width: 100%; }
+
+  .hideSidebar {
+    display: none; }
+
+  .showSidebar {
+    display: block; } }
 
 /*# sourceMappingURL=style.css.map */

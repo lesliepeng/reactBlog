@@ -82,3 +82,11 @@ export function deletePost(id) {
       payload: request
     };
 }
+
+
+export function toggleNav() {
+    return {
+      type: 'TOGGLE_NAV',
+      payload: 'show'
+    };
+}
