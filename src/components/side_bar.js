@@ -21,19 +21,29 @@ class SideBar extends Component {
   }
   render() {
     return (
-      <div className="side-bar">
-        <div className="profile">
+      <div className="col-sm-3 side-bar blog-sidebar">
+        <div className="profile sidebar-module">
           <img className="img-circle" src="../../image/me.jpg" />
           <h3>关于我</h3>
-          <p>职业:产品/前端，爱好:画画。
-            在这里记录日常生活，所思所想，以及技术学习心得。
+          <p>
+            爱画画的产品，爱写代码的UI，
+            爱跟自己较近的INTJ。
+            在这里记录生活，心得和搬运好文。
           </p>
         </div>
-        <div className="category-list">
+        <div className="category-list sidebar-module">
           <h3>标签</h3>
           <ul className="tag-list">
             {this.renderTags()}
           </ul>
+        </div>
+        <div class="sidebar-module">
+          <h3>Elsewhere</h3>
+          <ol class="list-unstyled">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ol>
         </div>
       </div>
     );

@@ -4,11 +4,11 @@ const PostTag = ({tag}) => {
 
   if(tag === "画画") {
     return (
-      <span className="blog-category blog-red-back"><p>{tag}</p></span>
+      <span className="blog-post-category blog-red-back"><p>{tag}</p></span>
     );
   }
   return (
-    <span className="blog-category"><p>{tag}</p></span>
+    <span className="blog-post-category"><p>{tag}</p></span>
   );
 };
 

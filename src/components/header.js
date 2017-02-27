@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 
 const Header = (props) => {
   return(
-    <header className="main-header">
-      <div className="container">
-        <a className="blog-name">Jettie Blog</a>
-        <div>
-          <Link to="/posts/new">
-            Add a Post
-          </Link>
-        </div>
+    <header>
+      <div className="header-wrap container">
+        <nav className="blog-nav">
+          <Link to="#" className="blog-nav-item name">Leslie Blog</Link>
+          <Link to="/posts/new" className="blog-nav-item">Add a Post</Link>
+        </nav>
       </div>
     </header>
   );

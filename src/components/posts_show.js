@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { fetchPost, deletePost } from '../actions/index';
 import { Link } from 'react-router';
 
-import Highlight from 'react-highlight';
-
 import showdown, { Converter } from 'showdown';
 import tocbot from 'tocbot';
 
@@ -40,14 +38,14 @@ class PostsShow extends Component {
 
     return (
       <div className="container">
-        <div className="js-toc">
+        <ul className="js-toc">
           {this.initToc.bind(this)}
-        </div>
-        <div className="blog-detail">
+        </ul>
+        <div className="blog-post-detail">
           <Link to='/'>Back to index</Link>
-            <h1 className="blog-title">{post.title}</h1>
+            <h1 className="blog-post-title">{post.title}</h1>
             <div
-              className="js-toc-content blog-content"
+              className="js-toc-content blog-post-content"
               dangerouslySetInnerHTML={{__html:new Converter().makeHtml(post.content)}}>
             </div>
         </div>

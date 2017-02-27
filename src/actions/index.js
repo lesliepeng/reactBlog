@@ -11,7 +11,7 @@ export const FETCH_TAGS = 'FETCH_TAGS';
 const ROOT_URL = 'https://api.leancloud.cn/1.1';
 const LCID = 'yO8UMd8PoTeRfdea87pSAdh4-gzGzoHsz';
 const LCKEY = 'yeHIfUHx0VGIguPz2yHdk4Sh';
-const PageSize = 3;
+const PageSize = 5;
 
 export function fetchPosts(page) {
   const url = `${ROOT_URL}/classes/Posts?order=-rankTag,-createdAt&limit=${PageSize}&skip=${PageSize * page}`;

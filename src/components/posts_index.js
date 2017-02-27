@@ -24,13 +24,13 @@ class PostsIndex extends Component {
   renderPosts() {
     return this.props.posts.map((post) => {
       return (
-        <li className="post-list-item" key={post.objectId}>
+        <div className="blog-post" key={post.objectId}>
             <PostTag tag={post.categories} />
-            <h2 className="blog-title">{post.title}</h2>
-            <h5 className="blog-pubdate">{post.pubDate}</h5>
-            <p className="blog-content">{post.content.slice(0,100)}</p>
+            <h2 className="blog-post-title">{post.title}</h2>
+            <h5 className="blog-post-meta">{post.pubDate}</h5>
+            <p className="blog-post-sum">{post.content.slice(0,100)}</p>
             <Link to={"posts/" + post.objectId} className="read-more">阅读全文</Link>
-        </li>
+        </div>
       )
     })
   }
@@ -58,19 +58,19 @@ class PostsIndex extends Component {
 
   render() {
     return (
-      <div className="container content-box">
-        <SideBar />
-        <div className="post-index">
-          <ul className="post-list">
-            {this.renderPosts()}
-          </ul>
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-8 blog-main">
+                {this.renderPosts()}
+            <nav>
+              <ul className="pager">
+                <li><a onClick={this.nextPage}>下一页</a></li>
+                <li><a onClick={this.previousPage}>上一页</a></li>
+              </ul>
+            </nav>
+          </div>
+          <SideBar />
         </div>
-        <a onClick={this.nextPage}>
-          下一页
-        </a>
-        <a onClick={this.previousPage}>
-          上一页
-        </a>
       </div>
 
 

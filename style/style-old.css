@@ -1,0 +1,139 @@
+/*****common*******/
+h1 {
+  font-size: 22px;
+  color:#4F5250;
+}
+h2 {
+  font-size: 19px;
+  color:#4F5250;
+}
+h3{
+  font-size: 16px;
+  color: #A5A5A5;
+}
+p {
+  font-size: 16px;
+  color: #6A6A6A;
+  line-height: 2;
+}
+
+a{
+  text-decoration: none;
+  color: #3C7F65;
+  font-weight: bold;
+}
+
+
+/*****header*******/
+.main-header{
+  width: 100%;
+  background-color: #E5EDF6;
+}
+.main-header .blog-name{
+  font-size: 34px;
+  color: #7F9CB3;
+  line-height: 72px;
+}
+
+/*****content: blog-index side-bar*******/
+.container{
+  margin: 0 auto;
+  max-width: 960px;
+}
+.content-box {
+  display: flex;
+  flex-direction: row;
+}
+/*****content: blog *******/
+.post-index {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 5;
+  order:1;
+}
+.post-list{
+  padding:0;
+}
+
+.post-list-item {
+  background-color: #FAFAFA;
+  margin: 20px 0;
+	padding: 30px 0 10px 5px;
+	box-shadow: 0px 1px 0px 0px rgba(180,180,180,0.5);
+  position: relative;
+}
+
+.blog-category{
+  position: absolute;
+  top: 0 ;
+  left: 0;
+  width: 68px;
+  height: 24px;
+  background-image: url('../image/tag_bg.png');
+  background-repeat: no-repeat;
+  color: #FFF;
+  margin-top: -7px;
+}
+
+.blog-category p {
+  width: 61px;
+  height: 24px;
+  text-align: center;
+  line-height: 24px;
+  margin: 0;
+  color: white;
+}
+
+.blog-red-back {
+  background-image: url('../image/tag_bg_2.png');
+}
+
+/*****content: sidebar *******/
+.side-bar{
+  flex-grow: 1;
+  order:2;
+  padding: 50px 0 0 30px;
+  border-left: 1px solid #F9F9F9;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+.profile img{
+  height: 80px;
+  width: 80px;
+  display: block;
+  margin: 0 auto;
+}
+
+.profile img,
+.profile h3{
+  text-align: center;
+  color: #7F9CB3;
+}
+.profile p{
+  font-size: 14px;
+  color: #A5A5A5;
+  line-height: 20px;
+}
+.tag-list{
+  padding: 0;
+}
+
+.tag-list-item p {
+  font-size: 13px;
+  line-height: 18px;
+  text-align: left;
+}
+
+.tag-list-item span{
+  margin-left: 5px;
+  font-size: 13px;
+  color: #A5A5A5;
+}
+
+
+/***** other *******/
+form a {
+  margin-left: 5px;
+}
