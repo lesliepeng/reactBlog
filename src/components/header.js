@@ -6,11 +6,12 @@ import { toggleNav } from '../actions/index';
 class Header extends Component {
 
   renderBtn() {
+    const iconText = this.props.showSidebar ? "close" : "toggle" ;
       return (
         <span
           className="toggleBtn"
           onClick={this.props.toggleNav}>
-          toggle!
+          {iconText}
         </span>
     );
   }
@@ -30,4 +31,8 @@ class Header extends Component {
   }
 }
 
-export default connect(null, { toggleNav })(Header);
+function mapStateToProps(state){
+  return { showSidebar: state.style.showSidebar };
+}
+
+export default connect(mapStateToProps, { toggleNav })(Header);

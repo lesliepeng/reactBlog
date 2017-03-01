@@ -70,6 +70,7 @@ class PostsIndex extends Component {
             </nav>
           </div>
           <SideBar styleName={this.props.showSidebar ? "showSidebar" : "hideSidebar"}/>
+
         </div>
       </div>
 
@@ -79,8 +80,6 @@ class PostsIndex extends Component {
 }
 
 function mapStateToProps(state){
-  console.log("state.style.showSidebar is:");
-  console.log(state.style.showSidebar);
   return { posts: state.posts.all, showSidebar: state.style.showSidebar };
 }
 

@@ -356,12 +356,19 @@ header {
     min-height: 50px;
     position: absolute;
     top: 0;
-    width: 100%; }
+    width: 100%;
+    transform: translateY(100px); }
 
   .hideSidebar {
-    display: none; }
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: transform 0.5s, visibility 0.2s, opacity 0.2s linear; }
 
   .showSidebar {
-    display: block; } }
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.5s, opacity 0.3s linear, visibility 0s; } }
 
 /*# sourceMappingURL=style.css.map */
